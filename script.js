@@ -1,7 +1,7 @@
-// Initialize Lucide icons
+
 lucide.createIcons();
 
-// Sample data for signals
+
 const signals = [
     {
         pair: "XAU/USD",
@@ -29,7 +29,7 @@ const signals = [
     }
 ];
 
-// Sample data for testimonials
+
 const testimonials = [
     {
         name: "Alex Thompson",
@@ -48,7 +48,7 @@ const testimonials = [
     }
 ];
 
-// Function to create a signal card with enhanced status
+
 function createSignalCard(signal) {
     const statusIcon = signal.status === 'closed' ? 'activity' : 'clock';
     const statusClass = signal.status === 'closed' ? 'closed' : '';
@@ -84,7 +84,7 @@ function createSignalCard(signal) {
     `;
 }
 
-// Function to create a testimonial card with enhanced design
+
 function createTestimonialCard(testimonial) {
     return `
         <div class="cyber-card animate-float">
@@ -105,28 +105,28 @@ function createTestimonialCard(testimonial) {
     `;
 }
 
-// Function to handle smooth scrolling
+
 function smoothScroll(target) {
     const element = document.querySelector(target);
     if (element) {
         window.scrollTo({
-            top: element.offsetTop - 80, // Adjust for navbar height
+            top: element.offsetTop - 80, 
             behavior: 'smooth'
         });
     }
 }
 
-// Handle button clicks
+
 function handleButtonClick(e) {
     const button = e.currentTarget;
     
-    // Add click effect
+
     button.style.transform = 'scale(0.98)';
     setTimeout(() => {
         button.style.transform = '';
     }, 100);
 
-    // Handle specific button actions
+
     if (button.classList.contains('get-started-btn')) {
         smoothScroll('#pricing');
     } else if (button.classList.contains('view-demo-btn')) {
@@ -134,29 +134,29 @@ function handleButtonClick(e) {
     }
 }
 
-// Initialize page
+
 function initializePage() {
-    // Initialize Lucide icons
+
     lucide.createIcons();
 
-    // Add signals to the grid
+
     const signalsGrid = document.querySelector('.signals-grid');
     if (signalsGrid) {
         signalsGrid.innerHTML = signals.map(signal => createSignalCard(signal)).join('');
     }
 
-    // Add testimonials to the grid
+
     const testimonialsGrid = document.querySelector('.testimonials-grid');
     if (testimonialsGrid) {
         testimonialsGrid.innerHTML = testimonials.map(testimonial => createTestimonialCard(testimonial)).join('');
     }
 
-    // Add click handlers to buttons
+
     document.querySelectorAll('.cyber-button').forEach(button => {
         button.addEventListener('click', handleButtonClick);
     });
 
-    // Add smooth scrolling to navigation links
+
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
@@ -166,14 +166,14 @@ function initializePage() {
         });
     });
 
-    // Re-initialize Lucide icons
+
     lucide.createIcons();
 }
 
-// Initialize when DOM is loaded
+
 document.addEventListener('DOMContentLoaded', initializePage);
 
-// Video Modal Functions
+
 function openVideoModal() {
     const modal = document.getElementById('videoModal');
     const videoPlayer = document.getElementById('videoPlayer');
@@ -190,7 +190,7 @@ function closeVideoModal() {
     document.body.style.overflow = 'auto';
 }
 
-// Close modal when clicking outside
+
 document.getElementById('videoModal').addEventListener('click', function(e) {
     if (e.target === this) {
         closeVideoModal();
